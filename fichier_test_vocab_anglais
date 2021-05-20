@@ -1,0 +1,130 @@
+import random
+
+words = [
+    "le métier",
+    "le boulot",
+    "l'emploi",
+    "le poste",
+    "l'opportunité d'emploi",
+    "le stage en entreprise",
+    "gérer",
+    "bosser comme un âne",
+    "qu'est-ce que tu fais dans la vie ?",
+    "dans quel domaine travailles-tu ?",
+    "quelle est ta profession",
+    "que fais-tu comme travail",
+    "tu bosses dans quoi ?",
+    "vous travaillez comme...depuis longtemps ?",
+    "boulanger",
+    "brasseur",
+    "boucher",
+    "charcutier",
+    "pâtissier",
+    "serveur"         
+]
+
+answers_words = [
+    ["occupation"],
+    ["work, casual"],
+    ["employment"],
+    ["post, position"],
+    ["job opportunity"],
+    ["internship"],
+    ["to manage"],
+    ["to work like a dog"],
+    ["what you do for a living"],
+    ["what field do you work in"],
+    ["what is your profession"],
+    ["what do you do for work"],
+    ["what do you work in"],
+    ["how long have you worked as"],
+    ["baker"],
+    ["brewer"],
+    ["butcher"],
+    ["pork butcher"],
+    ["pastry chef"],
+    ["waiter"]
+]
+
+
+
+
+
+def tab_words() :
+    print("vous avez prit : words\n")
+    while True:
+        i = random.randint(0,len(words)-1)
+        print(words[i]+ " : ")
+        userinput = input()
+        if not (userinput != "stop"):
+            break
+        elif userinput in answers_words[i]:
+            print("Correct")
+            print("\n")
+            score += 1
+            tentatives += 1
+        else:
+            print("non, " + words[i] + " : ",end="")
+            for answer_word in answers_words[i]:
+                print(answer_word,end=" ")
+                print("\n")
+            
+
+
+def tab_business():
+    print("vous avez prit : business\n")
+    while True:
+        i = random.randint(0,len(business)-1)
+        print(business[i]+ " : ")
+        userinput = input()
+        if not (userinput != "stop"):
+            break
+        elif userinput in answers_business[i]:
+            print("Correct")
+            print("\n")
+            score += 1
+            tentatives += 1
+        else:
+            print("non, " + words[i] + " : ",end="")
+            for answer_business in answers_business[i]:
+                print(answer_business,end=" ")
+                print("\n")
+
+
+
+                
+#MAIN
+userinput = ""
+score = 0
+tentatives = 0
+print("\n")
+while True :
+    print("les tableaux sont : 'words' - 'business'")
+    tableau = input("quel tableau voulez vous ? (stop pour arrêter) \n")
+    
+    if not tableau != "stop" :
+        break
+    
+    if (tableau == "words") : #words
+        tab_words()
+        
+    elif (tableau == "business"): #business
+        tab_business()
+        
+    elif (tableau == "stop") : #fin
+        exit
+    
+    else:
+        print("pas encore codé (me juge pas fdp jsuis pas ingénieur)")
+        print("\n")
+            
+
+
+print("score:")
+print(score)
+print('nombre tentatives:')
+print(tentatives)
+
+
+
+
